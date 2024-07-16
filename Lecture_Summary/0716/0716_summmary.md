@@ -34,7 +34,37 @@
     - 논리 연산자: (Boolean) $\cdot$ (Boolean)
         - 연산자의 우선순위 : 비교연산자 > 논리연산자
 
-    - 멤버십 연산자: 
+    - 멤버십 연산자: `in, not in`
 
 - ***왜 True는 1 False는 0으로 설정 했을까?***
     - 전류가 들어오면 1 안들어오 오면 0이기 때문
+
+- ***자리를 옮기게 된 경우***
+    1. python 설치확인
+    2. git 설치확인
+    3. vscode 설치확인
+    4. 원하는 directory에서 gitbash here
+    5. git init
+    6. git config --global -l
+        - username과 email address 확인
+    7. 윈도우 자격증명을 바꿔야함(다른방법있으나 권고)
+        
+        (1) 찾기 - 자격 증명 관리자
+
+        (2) windows 자격 증명
+
+        (3) github와 lab.ssafy.com을 둘다 편집하면 됨(global name, username, email 바꾸면 됨)
+            
+    8. git 설정 후 clone 등으로 다시 받아오면 됨(GitHub, labssafy)
+
+- ***얕은 복사, 깊은 복사***
+    - 얕은 복사: 두 대상이 같은 주소 값을 가짐
+    - 깊은 복사: 두 대상이 다른 주소 값을 가짐
+
+        이전에 내가 깊은 복사를 할 때, `B_list = [element for element in A_list]`로 했지만
+
+        ***아주 편하게 할 수 있는 방법이 있음*** 
+        1. `B_list = A_list[:]`
+        2. `import copy` 사용
+
+        
