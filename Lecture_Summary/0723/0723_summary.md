@@ -82,3 +82,13 @@
 
 ### Sky 요약 11:00 ~
 - Create Read Update Delete를 항상 목표로.
+
+
+
+- generator
+    1. range가 대표적
+    ``` 
+    print(range(0,5))   >>> range(0,5)
+    ```
+    2. overflow방지
+    3. 순회를 시켜줌
