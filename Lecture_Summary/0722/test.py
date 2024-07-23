@@ -38,3 +38,4 @@ def main(equation, len_equation):
     elif len_equation == 3: return cal(equation)
 
 cal('5')
+
