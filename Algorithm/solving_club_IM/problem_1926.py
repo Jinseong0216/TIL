@@ -1,0 +1,1 @@
+for n in range(1, int(input()) + 1): print( '-'*(str(n).count('3') + str(n).count('6') + str(n).count('9')) or n, end = ' ')
