@@ -11,5 +11,5 @@ for t in range(1, int(input())+1):
         elif arr[i] == '(':
             lst += [i]
         else:
-            total += sum(temp[lst.pop():i])
+            total += (sum(temp[lst.pop():i]) + 1)
     print(f'#{t} {total}')
