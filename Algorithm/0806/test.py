@@ -1,36 +1,25 @@
-T = int(input())
-for t in range(1,T+1):
-    N = int(input())
-    M = N // 2
-    num = list(range(1,N+1))
-    grid = [[0]*(N+1)] + [[0] + list(map(int, input().split())) for _ in range(N)]
-    subset = []
+# 최대 길이 64
+# 지나간 온 길을 25로 만들면 다시 못감
+# 델타 탐색으로 가기
+# 0. 가장 높은 지점 찾기
+# 
+# 1. 가장 높은 지점기준으로 반복문
+# 
+# 2. 몇 번째에 공사를 할지 정하기 0 ~ 63
+#     (공사 순서가 되기전에, 길이 막혔다면 그때 공사하면 됨)
+#         3. 각 케이스별로 공사 높이를 를 정함 1~k 
+#         4. 델타 탐색으로 지나가기 + 길이 구함
 
-    for i in range(1, 1<<N):
-        bit = [0]*N
-        for j in range(16):
-            if i & (1 <<j): bit[j] = 1
-        if sum(bit) == M:
-            subset += [[num[j] for j in range(N) if bit[j] == 1]]
 
-    ans = []
-    print(grid)
-    for sub in subset:
-        print(sub)
-        sub_2 = [i for i in range(1,N+1) if i not in sub]
-        S = S2 = 0
+T = 1
+for t in range(1, T+1):
+    N, K = map(int, input().split())
+    grid = [list(map(int, input().split())) for _ in range(N)]
+
+    M = max(max(grid[i]) for i in range(N))                                     # 최대 높이이자, 동시에 최대 길이
+    start_pt = [(i,j) for i in range(N) for j in range(N) if grid[i][j] == M]
+    max_len = 0
+    conduct = 1
+    for s_pt in start_pt:
+        for when_conduct in range()
     
-        for i in range(M):
-            for j in range(M):
-                S += (grid[sub[i]][sub[j]])
-                S2 += (grid[sub_2[i]][sub_2[j]])
-
-        ans += [abs(S-S2)]
-
-    print(ans)
-# 1
-# 4
-# 0 5 3 8
-# 4 0 4 1
-# 2 5 0 3
-# 7 2 3 0
