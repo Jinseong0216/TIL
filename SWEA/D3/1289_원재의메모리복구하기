@@ -1,0 +1,11 @@
+for t in range(1, int(input())+1):
+    bit = input().strip()
+    cnt, flag = 0, 1
+    while str(flag) in bit:
+        for i in range(len(bit)):
+            if bit[i] == str(flag):
+                bit = bit[i+1:]
+                flag = (flag+1)%2
+                cnt += 1
+                break
+    print(f'#{t} {cnt}')
