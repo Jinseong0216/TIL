@@ -15,4 +15,5 @@ for t in range(1,T+1):
             elif p == '/': stack.append(str(x//y))
             else: ans = 0
     if len(stack) != 1: print(f'#{t} error')
+    if not ans: print(f'#{t} error')
     else: print(f'#{t} {stack.pop()}')
