@@ -2,11 +2,12 @@ def move_to(start, end):
     return (end - start) and (end-start)//abs(end-start)
 
 T = int(input())
+
 for t in range(1, 1+T):
     info = input().split()
     N, buttons, idx = int(info[0]), {'B': [], 'O': []}, {'B': 1, 'O': 1}
     for i in range(N):
-        buttons[info[2*i+1]]= buttons[info[2*i+1]] + [int(info[2*i+2])]
+        buttons[info[2*i+1]] = buttons[info[2*i+1]] + [int(info[2*i+2])]
     i = time = cnt = 0
     while cnt < N:
         now, other = 'B', 'O'
