@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 자손결합자 */
+    /* div 태그안에서 p태그를 가진 모든 대상에게 적용하는 것 */
+    div p {
+      color: blue;
+    }
+    /* 자식 결합자 */
+    /* div 태그안에서 직계 자식인 p태그에만 적용하는 것 */
+    div > p {
+      color: crimson;
+    }
+    /* 두 결합자의 명시도가 같기 때문에 소스 코드 선언순서에 따라 변경됨 */
+    /* 형의 아들은 자손 결합자로 인하여 blue색이 지정됨 */
+    /* 형과 동생은 동일한 명시도를 가진 결합자로 인하여 소스코드 선언순서를 따라감 */
+    /* 그 결과, 형과 동생의 경우는 늦게 선언된 자식결합자로 인하여 crimson색이 지정됨 */
+  </style>
+</head>
+<body>
+  <div id="부모">
+    <!-- 자식결합자 -->
+    <p id="형">자식    
+      <ol><p id="형의 아들">손자</p></ol>
+    </p>
+    <p id="동생">자식</p>
+  </div>
+</body>
+</html>
+
+
