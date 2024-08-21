@@ -1,3 +1,10 @@
+<!-- 팝업창 = 모달 -->
+<!-- 모달 작업시의 유의사항이 있음
+만약, 모달을 코드에서 위상이 낮은 부분에 넣으면 표시는 되는데 끌 수 없는 상황이 생김 가끔
+modal 본체는 버튼을 눌러야만 활성화 되는 코드이기 때문에 버튼과 본체가 함께 다닐 필요가 없음.
+이를 방지하기 위해서 모달을 따로 모아서 제일 밑 같은 곳에 따로 코드 작성하는게 나음 + 
+modal은 id 속성 값과 각 버튼의 data-bs-targe 속성 값이 각각 올바르게 일치하는지 확인해야함 -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,6 +17,31 @@
 
 <body>
   <!-- modal -->
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Launch demo modal
+  </button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
