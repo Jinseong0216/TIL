@@ -478,4 +478,3 @@ FROM EMP;
   - 행 순서대로 각각 이전 값(LAG), 이후 값(LEAD) 가져오기
   - ORDER BY 절 필수
 
-    
