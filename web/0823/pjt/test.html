@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Intro</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><i class="fa-solid fa-house p-2"></i>Home</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#section-2"><i class="fa-solid fa-user p-2"></i>Intro</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section-3"><i class="fa-solid fa-lightbulb p-2"></i>Skills</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#section-4"><i class="fa-solid fa-briefcase p-2"></i>Project</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#contactModal"><i class="fa-solid fa-envelope p-2"></i>Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+    <main class="container-fluid p-0" id="fontpage">
+
+
+        <section class="row custom-row-first" id="section-1">
+            <img src="image/pngwing.png" class="img-main p-0" alt="Responsive image">
+            <div class="card col-3 offset-2 d-none d-lg-block londrina-shadow-regular" style="border:dotted">
+                <img class="profile-image p-2" src="image/JJANG9.png" alt="Profile Image">
+                <h2 class="name m-0">Choi Jin-Seong (1997.02.16)</h2>
+                <ul>
+                    <li><h3>Hello, world!!</h3></li>
+                </ul>
+            </div>
+        </section>
+
+
+
+        <section class="intro-container" id="section-2">
+            <div class="intro-left" style="border:dotted">
+                <img src="image/JJANG9.png" alt="Profile Image" style="width: 150px; border-radius: 50%; border: 2px solid #ddd;">
+                <h1 style="color: #007bff;">Choi Jin-Seong</h1>
+                <p>Web Developer with a passion for creating impactful web solutions.</p>
+            </div>
+            <div class="intro-right" style="border:dotted">
+                <h2 style="color: #007bff;">Curriculum Vitae</h2>
+                <p><strong>Name:</strong> Choi Jin-Seong</p>
+                <p><strong>Date of Birth:</strong> February 16, 1997</p>
+                <p><strong>Email:</strong> choi.jinseong@example.com</p>
+                <p><strong>Phone:</strong> +82 10-1234-5678</p>
+                <p><strong>Education:</strong> Bachelor of Computer Science, University of Pusan (2015-2019)</p>
+                <p><strong>Experience:</strong></p>
+                <ul>
+                    <li><strong>Web Developer Intern</strong> at Tech Innovators (June 2018 - August 2018)</li>
+                    <li><strong>Junior Web Developer</strong> at Creative Solutions (January 2020 - Present)</li>
+                </ul>
+                <p><strong>Skills:</strong> HTML, CSS, JavaScript, React, Node.js, Bootstrap</p>
+                <p><strong>Certifications:</strong> Certified Web Developer, Front-End Web Developer Nanodegree (Udacity)</p>
+            </div>
+        </section>
+
+
+
+        <div class="skills-container" id="section-3">
+            <div class="col-12 mx-auto"><h2>Skills</h2></div>
+            <div class="card skill-card" style="border:dotted">
+                <h4 class="mx-auto">Frontend</h4>
+                <i class="fa-brands fa-html5 fa-3x mx-auto"></i>
+                <p class="mx-auto">HTML</p>
+                <i class="fa-brands fa-css3-alt fa-3x mx-auto"></i>
+                <p class="mx-auto">CSS</p>
+                <i class="fa-brands fa-js fa-3x mx-auto"></i>
+                <p class="mx-auto">JavaScript</p>
+                <i class="fa-brands fa-react fa-3x mx-auto"></i>
+                <p class="mx-auto">React</p>
+            </div>
+            <div class="card skill-card" style="border:dotted">
+                <h4 class="mx-auto">Backend</h4>
+                <i class="fa-brands fa-node fa-3x mx-auto"></i>
+                <p class="mx-auto"> Node.js</p>
+                <i class="fa-solid fa-database fa-3x mx-auto"></i>
+                <p class="mx-auto">Express</p>
+            </div>
+            <div class="card skill-card" style="border:dotted">
+                <h4 class="mx-auto">Database</h4>
+                <i class="fa-solid fa-database fa-3x mx-auto"></i>
+                <p class="mx-auto">MongoDB</p>
+                <i class="fa-solid fa-database fa-3x mx-auto"></i>
+                <p class="mx-auto">SQL</p>
+            </div>
+        </div>
+
+
+
+        <section class="projects-container" id="section-4">
+            <div class="col-12 mx-auto"><h2>Projects</h2></div>
+            <div class="card project-card" style="border:dotted">
+                <h3>Project 1</h3>
+                <p>Description of Project 1. This project involved creating a web application with specific features.</p>
+            </div>
+            <div class="card project-card" style="border:dotted">
+                <h3>Project 2</h3>
+                <p>Description of Project 2. This project focused on developing a platform with an emphasis on usability.</p>
+            </div>
+        </section>
+    </main>
+
+
+
+
+
+    <footer class="row mx-auto" id="section-5">
+        <p>&copy; 2024.08.23 PTJ-03 / pnum2378@naver.com</p>
+        <a href="#"><button class="top-btn"><i class="fa-solid fa-chevron-up"></i></button></a>
+    </footer>
+
+
+
+
+    <!-- Contact 모달 -->
+    <div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="contactModalLabel">Contact Us</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <form>
+                <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" required>
+                </div>
+                <div class="mb-3">
+                <label for="email" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="email" required>
+                </div>
+                <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="3" required></textarea>
+                </div>
+            </form>
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Send Message</button>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
