@@ -23,7 +23,6 @@ for tc in range(1, T+1):
     for alien in range(N):  # 제일 처음 심사 할 외계인을 for 문을 통해서 지정
         VST = [0 if i != alien else 1 for i in range(N)]    # 제일 처음 심사한 외계인 표시
         dfs(VST, alien, 0, 0)   # 함수 호출(1명 심사함, before 로 제일 처음 심사한 외계인, 위험도 0, 계산 횟수 0)
-
     print(f'#{tc} {min_risk}')
 
 
