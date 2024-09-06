@@ -19,6 +19,7 @@ for T in range(1, int(input())+1):
                 if distance[ni][nj] == -1:
                     distance[ni][nj] = distance[i][j]+1
                     queue.append((ni, nj))
+            if [i, j] == end: break
         return
 
     bfs()
