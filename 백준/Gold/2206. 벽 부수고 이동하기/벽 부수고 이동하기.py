@@ -1,4 +1,6 @@
+import sys
 from collections import deque
+input = sys.stdin.readline
 
 N, M = map(int, input().split())
 grid = [list(map(int, input().strip())) for _ in range(N)]
@@ -26,7 +28,7 @@ def bfs():
                     queue.append(((ni, nj), flag)) # 큐에 넣기
 
             elif grid[ni][nj] == 1 and flag == 0: # 가는 방향이 벽이면서, 아직까지 벽을 부순적이 없다면
-                if dist[ni][nj][1] == 0 or dist[ni][nj][1] > dist[idx][jdx][0] + 1: # 벽을 부쉈을 때, 최단거리 업데이트 가능하면 
+                if dist[ni][nj][1] == 0 or dist[ni][nj][1] > dist[idx][jdx][0] + 1: # 벽을 부쉈을 때, 최단거리 업데이트 가능하면
                     dist[ni][nj][1] = dist[idx][jdx][0] + 1 # 업데이트 하고
                     queue.append(((ni, nj), 1)) # 큐에 넣기 + 벽을 부순적이 있다는 의미로 flag에 1 넣기
 
@@ -34,4 +36,3 @@ def bfs():
 bfs()
 if dist[N-1][M-1] == [0, 0]: print(-1)
 else: print(min(x for x in dist[N-1][M-1] if x != 0))
-
