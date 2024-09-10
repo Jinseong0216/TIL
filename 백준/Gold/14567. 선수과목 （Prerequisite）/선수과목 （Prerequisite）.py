@@ -10,6 +10,7 @@ semester = 1
 while dic_info:
     finish_lst = []
     new_dic = {}
+    semester = str(semester)
     for subject, priority in dic_info.items():
         if priority == [0]*(N+1):
             finish_lst.append(subject)
@@ -21,6 +22,7 @@ while dic_info:
         for finish in finish_lst:
             new_dic[subject][finish] = 0
     dic_info = new_dic
+    semester = int(semester)
     semester += 1
 
-print(*(ans.values()))
+print(' '.join(ans.values()))
