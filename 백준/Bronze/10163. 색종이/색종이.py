@@ -1,18 +1,17 @@
-# 10163번 색종이
+import sys
+input = sys.stdin.readline
 
-grid = [['0']*101 for _ in range(101)]
 N = int(input())
+grid = [[0]*1001 for _ in range(1001)]
+for num in range(1, N+1):
+    x_LB, y_LB, width, height = map(int, input().split())
+    for idx in range(y_LB, y_LB+height):
+        grid[idx][x_LB: x_LB+width] = [num]*width
 
-for flag in range(1,1+N):
-    x, y, dx, dy = map(int, input().split())
-    for i in range(x, x + dx):
-        for j in range(y, y + dy):
-            grid[i][j] = (str(flag) + 'sep' + grid[i][j])[:len(str(flag))+3]
+ans = [0]*(N+1)
+for idx in range(1001):
+    for jdx in range(1001):
+        ans[grid[idx][jdx]] += 1
 
-areas = []
-Cnts = [0] + [0]*N
-for i in range(101):
-    for j in range(101):
-        Cnts[int(grid[i][j].split('sep')[0])] += 1
-
-for i in range(1,1+N): print(Cnts[i])
+for num in range(1, N+1):
+    print(ans[num])
