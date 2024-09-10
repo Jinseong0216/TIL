@@ -4,7 +4,7 @@
 
 ### 성능 요약
 
-메모리: 204624 KB, 시간: 336 ms
+메모리: 31252 KB, 시간: 72 ms
 
 ### 분류
 
@@ -12,19 +12,19 @@
 
 ### 제출 일자
 
-2024년 8월 16일 17:08:16
+2024년 7월 23일 00:54:28
 
 ### 문제 설명
 
 <p>평면에 색깔이 서로 다른 직사각형 모양의 색종이 N장이 하나씩 차례로 놓여진다. 이때 색종이가 비스듬하게 놓이는 경우는 없다. 즉, 모든 색종이의 변은 서로 평행하거나, 서로 수직이거나 둘 중 하나이다. 그림-1은 1번, 2번, 3번 세 장의 색종이가 순서대로 놓인 상태를 보여준다.</p>
 
-<p style="text-align: center;"><img alt="" src="" style="width: 237px; height: 161px;"></p>
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/35e4c6f0-a2b6-43ac-8667-86d3fc5acc78/-/preview/" style="width: 237px; height: 161px;"></p>
 
 <p style="text-align: center;">그림-1</p>
 
 <p>여기에 그림-2에서 보인 것처럼 4번 색종이가 하나 더 놓이면 3번 색종이는 완전히 가려서 보이지 않게 된다. 그리고, 1번 색종이와 2번 색종이는 부분적으로 가려 보이며, 4번 색종이는 완전히 보이게 된다.</p>
 
-<p style="text-align: center;"><img alt="" src="" style="width: 246px; height: 173px;"></p>
+<p style="text-align: center;"><img alt="" src="https://upload.acmicpc.net/407be9a9-4f31-4fc1-be51-97231052dd72/-/preview/" style="width: 246px; height: 173px;"></p>
 
 <p style="text-align: center;">그림-2</p>
 
