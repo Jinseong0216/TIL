@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>CREATE PAGE</h1>
+  
+  <form action="{% url "todos:main" %}">
+    <input type="submit" value="제출">
+  </form>
+{% endblock content %}

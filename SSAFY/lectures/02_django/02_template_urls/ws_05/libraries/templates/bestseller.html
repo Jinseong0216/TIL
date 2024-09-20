@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>베스트 셀러 목록</title>
+    <style>
+        /* 네비게이션 바 스타일 */
+        ul.navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+    
+        ul.navbar li {
+            float: left;
+        }
+    
+        ul.navbar li a {
+            display: block;
+            color: #000;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+    
+        ul.navbar li a:hover {
+            background-color: #ddd;
+        }
+    
+        ul.navbar li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        /* 컨테이너 스타일 */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            text-align: center;
+        }
+
+        /* 주요 섹션 스타일 */
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* 도서 목록 스타일 */
+        .book-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: left;
+        }
+
+        .book-list-item {
+            margin-bottom: 20px;
+        }
+
+        .book-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .book-author {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 5px;
+        }
+
+        .book-description {
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .book-divider {
+            border: none;
+            border-top: 1px solid #ddd;
+            margin: 10px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <ul class="navbar">
+        <li><a class="active" href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'libraries:recommend' %}">Recommend</a></li>
+        <li><a href="{% url 'libraries:bestseller' %}">BestSeller</a></li>
+    </ul>
+    <div class="container">
+        <div class="section">
+            <h1>베스트 셀러 목록</h1>
+            <ul class="book-list">
+                {% for item in result %}
+                    <div class="book-list-winner">
+                        {% if forloop.counter == 1 %}
+                            <li class="book-list-item" style="margin: 0 auto; background-color: #ffe0e0;">
+                                <p class="book-title">{{ item.title }}</p>
+                                <p class="book-author">저자: {{ item.author }}</p>
+                                <p class="book-description">설명: {{ item.bestDuration }}</p>
+                                <hr class="book-divider">
+                            </li>
+                        {% elif forloop.counter == 2 %}
+                            <li class="book-list-item" style="margin: 0 auto; background-color: #e0e0ff;">
+                                <p class="book-title">{{ item.title }}</p>
+                                <p class="book-author">저자: {{ item.author }}</p>
+                                <p class="book-description">설명: {{ item.bestDuration }}</p>
+                                <hr class="book-divider">
+                            </li>
+                        {% elif forloop.counter == 3 %}
+                            <li class="book-list-item" style="margin: 0 auto; background-color: #e0ffe0;">
+                                <p class="book-title">{{ item.title }}</p>
+                                <p class="book-author">저자: {{ item.author }}</p>
+                                <p class="book-description">설명: {{ item.bestDuration }}</p>
+                                <hr class="book-divider">
+                            </li>
+                    </div>
+                    {% else %}
+                        <li class="book-list-item">
+                            <p class="book-title">{{ item.title }}</p>
+                            <p class="book-author">저자: {{ item.author }}</p>
+                            <p class="book-description">설명: {{ item.bestDuration }}</p>
+                            <hr class="book-divider">
+                        </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

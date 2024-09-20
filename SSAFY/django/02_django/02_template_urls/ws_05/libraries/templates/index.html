@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서 관리 시스템</title>
+    <style>
+        /* 네비게이션 바 스타일 */
+        ul.navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #f1f1f1;
+        }
+
+        ul.navbar li {
+            float: left;
+        }
+
+        ul.navbar li a {
+            display: block;
+            color: #000;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        ul.navbar li a:hover {
+            background-color: #ddd;
+        }
+
+        ul.navbar li a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        /* 컨테이너 스타일 */
+        .container {
+            max-width: 800px;
+            margin: auto;
+            text-align: center;
+        }
+
+        /* 주요 섹션 스타일 */
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            background-color: #f2f2f2;
+            padding: 10px;
+        }
+        .section p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body>
+    <ul class="navbar">
+        <li><a class="active" href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'libraries:recommend' %}">Recommend</a></li>
+        <li><a href="{% url 'libraries:bestseller' %}">BestSeller</a></li>
+    </ul>
+    <div class="container">
+        <div class="section">
+            <h1 style="background-color: #ffc107;">도서 관리 시스템</h1>
+            <p>도서 관리 시스템은 도서를 효율적으로 관리하고, 신간 및 베스트 셀러를 추천하는 서비스입니다.</p>
+        </div>
+
+        <div class="section">
+            <h1 style="background-color: #17a2b8;">서비스 소개</h1>
+            <p>
+                도서 관리 시스템은 도서관이나 도서 판매 업체에서 사용할 수 있는 편리한 도서 관리 솔루션입니다.
+                이 시스템을 통해 도서 정보를 등록, 수정, 삭제할 수 있으며, 도서의 신간 정보를 확인하거나
+                베스트 셀러 목록을 확인하여 독자들에게 추천할 수 있습니다. 간단하고 직관적인 사용자 인터페이스로
+                편리한 도서 관리를 지원합니다.
+            </p>
+        </div>
+    </div>
+</body>
+</html>
