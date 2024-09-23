@@ -5,16 +5,18 @@
   - include 이해하기
   - 공식문서 검색할 때, 구글을 통해서 들어가는 것이 훨씬 좋음
 
-### 라이브강의 정리
-
+### 라이브강의에서의 주의사항
+  1. 테이블.id 사용 X **테이블.pk 권장**
+  2. **create 방식 사용 X**
+   
 ### 아래의 순서 요약
-0. 기본 셋팅(가상환경, 기존의 패키지(Django, ... etc))
-1. `pip install ipython`
-2. `pip install django-extensions`
-3. settings.py에 `django_extensions` (installed app에)를 추가
-4. `pip freeze > requirements.txt`(선택)
-5. 마이그레이션 진행
-6. `python manage.py shell_plus`를 통해 Django shell 실행 후, 테이블 추가 등의 작업
+  1. 기본 셋팅(가상환경, 기존의 패키지(Django, ... etc))
+  2. `pip install ipython`
+  3. `pip install django-extensions`
+  4. settings.py에 `django_extensions` (installed app에)를 추가
+  5. `pip freeze > requirements.txt`(선택)
+  6. 마이그레이션 진행
+  7. `python manage.py shell_plus`를 통해 Django shell 실행 후, 테이블 추가 등의 작업
 
 #### ORM
 - Django와 DB간 사용하는 언어가 다르기 때문에 소통이 불가능함. 이를 해결하기 위한 것이 ORM(장고에 이미 내장되어 있음.)
