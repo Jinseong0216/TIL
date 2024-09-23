@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>과제 실행결과 1번</h1>
+    <p>{{ result_1 }}</p>
+    <hr>
+    <h1>과제 실행결과 2번</h1>
+    <p>{{ result_2 }}</p>
+    <hr>
+    <h1>과제 실행결과 3번</h1>
+    <p>{{ result_3 }}</p>
+    {% for data in result_3 %}
+        <p>{{ data.location }}</p>
+    {% endfor %}
+    <hr>
+    <h2>Garages</h2>
+    <p>{{ garageses }}</p>
+    {% for garage in garages %}
+        <p>차고 번호: {{ garage.pk }}</p>
+        <p>차고 지역: {{ garage.location }}</p>
+        <p>차고 자리 수: {{ garage.capacity }}</p>
+        <p>차고 이용 가능 여부: {{ garage.is_parking_avaliable }}</p>
+        <p>차고 개장 시간: {{ garage.opening_time }}</p>
+        <p>차고 폐장 시간: {{ garage.closing_time }}</p>
+        <hr>
+    {% endfor %}    
+</body>
+</html>
