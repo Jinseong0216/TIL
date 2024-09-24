@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Detail</h1>
+    <h3> {{ article.pk }}번째 글</h3>
+    <hr>
+    <p>제목: {{ article.title }}</p>
+    <p>내용: {{ article.content }}</p>
+    <p>작성일: {{ article.created_at }}</p>
+    <p>수정일: {{ article.updated_at }}</p>
+    <hr>
+    {% comment %} 문법..? {% endcomment %}
+    <form action="{% url 'articles:delete' article.pk %}" method="POST">
+        {% comment %} 여전히 토큰이 존재해야 함 {% endcomment %}
+            {% csrf_token %}
+        {% comment %} 버튼에 글 넣기 = value {% endcomment %}
+        <input type="submit" value="DELETE">
+    </form>
+    <a href="{% url 'articles:index' %}">[back]</a>
+</body>
+</html>
