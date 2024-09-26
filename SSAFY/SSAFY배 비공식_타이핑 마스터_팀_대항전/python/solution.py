@@ -1,52 +1,45 @@
 from itertools import permutations
+from pprint import pprint as print
 import sys
 # 인코딩
 sys.stdin = open('input.txt', 'r', encoding='UTF8')
 
 ###############################################################################################
 def cal_score(speed, precision, language='E'):
-    # 한국어 가중치 0.7
-    #  영어 가중치 1.0
+    # 한국어 => 가중치: 0.7 / 영어 => 가중치: 1.0
     weight = 0.7 if language == 'K' else 1.0
-    result = int((speed*precision * weight)/100)
-    return result
+    return int(speed*precision*weight/100)
 
 
 ###############################################################################################
 def compare_score(team_ord):
-    # 팀 평균 점수
-    data_dic[team_ord]['team_score'] = str(sum(data_dic[team_ord]['score']) // 2)
-
-    def min_difference(std_numbers):
-        # 초기값 세팅
-        min_diff = float('inf')
-        for pos_score in permutations(std_numbers, teacher_digit):
-            # 가능한 점수차이
-            pos_diff = abs(teacher_score - int(''.join(pos_score)))
-            # 최소차이 업데이트
-            if min_diff > pos_diff: min_diff = pos_diff
-        return min_diff # 최소 차이 반환
-
-    # 팀 평균 점수에 해당하는 숫자를 리스트로 형 변환
-    student_numbers = list(data_dic[team_ord]['team_score'])
-    # 점수의 자리 수
-    student_digit = len(student_numbers)
-    if student_digit < teacher_digit:
-        # 구현핑 점수의 자리 수와의 차이만큼 0 추가
-        student_numbers = student_numbers + ['0' for _ in range(teacher_digit - student_digit)]
-    # 최소 차이 업데이트
-    data_dic[team_ord]['min_difference'] = min_difference(student_numbers)
+    # 팀 평균점수
+    avg_score = str(sum(data_dic[team_ord]['score'])//2)
+    # 구현핑과의 점수 차이를 바탕으로 점수 변경
+    # ex. 구현핑: 666, 팀 평균점수 70 => 070
+    # ex. 구현핑: 700, 팀 평균점수 1500 => 1500 내리기는 없음
+    avg_score = '0'*max(0, teacher_digit - len(avg_score)) + avg_score
+    # 팀 평균점수 업데이트(원점수)
+    data_dic[team_ord]['team_score'] = avg_score
+    # 자리 바꿔서 가능한 점수의 경우를 할당
+    # ex. avg_score = 112 => pos_lst = [('1','1','2'), ('1','2','1'), ('2','1','1')]의 주소값
+    pos_lst = permutations(list(avg_score), len(avg_score))
+    # # 최소차이 업데이트
+    min_diff = min(abs(teacher_score - int(''.join(pos_score))) for pos_score in pos_lst)
+    data_dic[team_ord]['min_difference'] = min_diff
 
 
 ###############################################################################################
 # 제출 순서 체크 함수
-# 만약 늦게 제출한 팀원의 순서가 같다면 그냥 팀 번호 낮은 팀이 우선순위 받는걸로... 필요시 수정.
+# 만약 늦게 제출한 팀원의 순서가 같고 원점수도 같다면 그냥 팀 번호 낮은 팀이 우선순위 받는걸로... 필요시 수정.
 def cal_submit_rank():
-    # temp = [[늦게 제출한 팀원의 속도, 팀1 번호], [늦게 제출한 팀원의 속도, 팀2 번호], ...]
-    temp = sorted([ [min(data_dic[team_ord]['speed']), team_ord] for team_ord in data_dic['team_ord']], reverse=True)
-    for rank in range(len(temp)):
+    # submit_lst = [[늦게 제출한 팀원의 속도, 팀1 번호], [늦게 제출한 팀원의 속도, 팀2 번호], ...]
+    submit_lst = [[min(data_dic[team_ord]['speed']), team_ord] for team_ord in data_dic['team_ord']]
+    # 정렬. 1) 늦게 제출한 팀원의 속도가 낮은순 2) 원점수가 높은 순 3) 팀 번호가 낮은 순
+    submit_lst.sort(reverse=True)
+    for rank in range(len(submit_lst)):
         # 순서/ 팀 번호
-        rank, team_ord = rank+1, temp[rank][1]
+        rank, team_ord = rank+1, submit_lst[rank][1]
         # 제출 순서 업데이트
         data_dic[team_ord]['submit_rank'] = rank
 
@@ -54,16 +47,17 @@ def cal_submit_rank():
 ###############################################################################################
 # 최종 순위 생성 함수
 def cal_final_rank():
-    # final_result = [[최소차이, 제출순서, 팀1 번호], [최소차이, 제출순서, 팀2 번호], ... ]
+    # final_result = [[최소차이, -원점수, 제출순서, 팀1 번호], [최소차이, -원점수, 제출순서, 팀2 번호], ... ]
     final_result = [
-        [data_dic[team_ord]['min_difference'], data_dic[team_ord]['submit_rank'], team_ord]
+        [data_dic[team_ord]['min_difference'], -int(data_dic[team_ord]['team_score']), 
+         data_dic[team_ord]['submit_rank'], team_ord]
         for team_ord in data_dic['team_ord']
     ]
-    # 최소차이가 작은 순으로 정렬. 최소 차이가 같다면, 제출순서가 빠른 순으로 정렬
+    # 최소차이가 작은 순, 원점수 큰순, 제출순서가 빠른 순으로 정렬
     final_result.sort()
     for i in range(len(final_result)):
         # 해당 팀의 최소차이, 팀 번호
-        diff, team_ord = final_result[i][0], final_result[i][2]
+        diff, team_ord = final_result[i][0], final_result[i][3]
         # 최종 순위 업데이트
         data_dic[team_ord]['final_rank'] = i+1
         # 출력
@@ -87,14 +81,17 @@ for team_ord in range(1, N+1):
     ns1, np1, lang1, name1 = map(lambda x: int(x) if x.isdecimal() else x, input().split())
     ns2, np2, lang2, name2 = map(lambda x: int(x) if x.isdecimal() else x, input().split())
     data_dic[team_ord] = {
-        'name': [name1, name2], 'speed': [ns1, ns2], 'precision': [np1, np2], 'lang': [lang1, lang2],
-        'score': {cal_score(ns1, np1, lang1), cal_score(ns2, np2, lang2)}, 'team_score': None,
-        'min_difference': None, 'submit_rank': None, 'final_rank': None,}
+        'name': [name1, name2], 'speed': [ns1, ns2], 'precision': [np1, np2], 
+        'lang': [lang1, lang2], 'score': [cal_score(ns1, np1, lang1), cal_score(ns2, np2, lang2)], 
+        'team_score': '', 'min_difference': '', 'submit_rank': '', 'final_rank': '',}
+    # 팀 평균점수 및 구현핑 점수와의 차이 업데이트
     compare_score(team_ord)
+    #           dic.keys() 아래 참조
     # dict_keys(['team_ord', 1, 2, 3, 4, 5, 6, 7, 8])
-    # dic['team_ord'].keys() =
-    # = dict_keys(['name', 'speed', 'precision', 'lang', 'score', 'team_score',
+    #           dic['team_ord'].keys() 아래 참조
+    # dict_keys(['name', 'speed', 'precision', 'lang', 'score', 'team_score',
     # 'min_difference', 'submit_rank', 'final_rank']
+
 cal_submit_rank()
 cal_final_rank()
-
+# print(data_dic)
