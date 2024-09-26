@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+    <h1>base.css 연결 test</h1>
+    {% for article in articles %}
+        {% if article.image %}
+            <img src="{{ article.image.url }}" alt="img">
+        {% endif %}
+    {% endfor %}
+{% endblock content %}
