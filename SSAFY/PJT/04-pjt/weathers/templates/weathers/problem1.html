@@ -1,0 +1,59 @@
+{% extends "weathers/base.html" %}
+{% block content %}
+    <h1>문제 1. 데이터 읽어오기</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Temp High (F)</th>
+                <th>Temp Avg (F)</th>
+                <th>Temp Low (F)</th>
+                <th>Dew Point High (F)</th>
+                <th>Dew Point Avg (F)</th>
+                <th>Dew Point Low (F)</th>
+                <th>Humidity High (%)</th>
+                <th>Humidity Avg (%)</th>
+                <th>Humidity Low (%)</th>
+                <th>Sea Level Pressure High (inches)</th>
+                <th>Sea Level Pressure Avg (inches)</th>
+                <th>Sea Level Pressure Low (inches)</th>
+                <th>Visibility High (miles)</th>
+                <th>Visibility Avg (miles)</th>
+                <th>Visibility Low (miles)</th>
+                <th>Wind High (MPH)</th>
+                <th>Wind Avg (MPH)</th>
+                <th>Wind Gust (MPH)</th>
+                <th>Precipitation Sum (inches)</th>
+                <th>Events</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for weather in weathers %}
+            <tr>
+                <td>{{ weather.Date }}</td>
+                <td>{{ weather.TempHighF }}</td>
+                <td>{{ weather.TempAvgF }}</td>
+                <td>{{ weather.TempLowF }}</td>
+                <td>{{ weather.DewPointHighF }}</td>
+                <td>{{ weather.DewPointAvgF }}</td>
+                <td>{{ weather.DewPointLowF }}</td>
+                <td>{{ weather.HumidityHighPercent }}</td>
+                <td>{{ weather.HumidityAvgPercent }}</td>
+                <td>{{ weather.HumidityLowPercent }}</td>
+                <td>{{ weather.SeaLevelPressureHighInches }}</td>
+                <td>{{ weather.SeaLevelPressureAvgInches }}</td>
+                <td>{{ weather.SeaLevelPressureLowInches }}</td>
+                <td>{{ weather.VisibilityHighMiles }}</td>
+                <td>{{ weather.VisibilityAvgMiles }}</td>
+                <td>{{ weather.VisibilityLowMiles }}</td>
+                <td>{{ weather.WindHighMPH }}</td>
+                <td>{{ weather.WindAvgMPH }}</td>
+                <td>{{ weather.WindGustMPH }}</td>
+                <td>{{ weather.PrecipitationSumInches }}</td>
+                <td>{{ weather.Events }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock content %}

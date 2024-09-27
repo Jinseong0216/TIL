@@ -1,0 +1,25 @@
+from django.db import models
+
+# Create your models here.
+class Weather(models.Model):
+    Date = models.DateField()
+    TempHighF = models.IntegerField()
+    TempAvgF = models.IntegerField()
+    TempLowF = models.IntegerField()
+    DewPointHighF = models.IntegerField()
+    DewPointAvgF = models.IntegerField()
+    DewPointLowF = models.IntegerField()
+    HumidityHighPercent = models.DecimalField(max_digits=10, decimal_places=5)
+    HumidityAvgPercent = models.DecimalField(max_digits=10, decimal_places=5)
+    HumidityLowPercent = models.DecimalField(max_digits=10, decimal_places=5)
+    SeaLevelPressureHighInches = models.DecimalField(max_digits=10, decimal_places=5)
+    SeaLevelPressureAvgInches = models.DecimalField(max_digits=10, decimal_places=5)
+    SeaLevelPressureLowInches = models.DecimalField(max_digits=10, decimal_places=5)
+    VisibilityHighMiles = models.IntegerField()
+    VisibilityAvgMiles = models.IntegerField()
+    VisibilityLowMiles = models.IntegerField()
+    WindHighMPH = models.IntegerField()
+    WindAvgMPH = models.IntegerField()
+    WindGustMPH = models.IntegerField()
+    PrecipitationSumInches = models.CharField(max_length=255)
+    Events = models.CharField(max_length=255, blank=True, null=True)
