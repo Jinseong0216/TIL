@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>여행지 버킷리스트 서비스</h1>
+  <a href="{% url 'buckets:create' %}">[CREATE]</a>
+
+  <ul>
+    {% for list in travel_bucket_lists %}
+    <a href="{% url 'buckets:detail' list.pk%}">
+      {% if list.image %}
+        <img src="{{ list.image.url }}" alt="{{ list.image_description }}">
+      {% else %}  
+        <img src="{% static 'assets/noimage.png' %}" alt="noimage" style="max-width: 200px; max-height:200px;">
+      {% endif %}
+      <p>{{ list.name }}</p>
+    </a>
+    {% comment %} detail_url에 detail함수가 받을 키를 같이 보냄 {% endcomment %}
+    {% comment %} list.destination_name을 통해 LA를 출력 {% endcomment %}
+    <a href="{% url 'buckets:detail' list.pk %}">{{ list.destination_name }}</a>
+    <hr>
+    {% endfor %}
+  </ul>
+{% endblock content %}

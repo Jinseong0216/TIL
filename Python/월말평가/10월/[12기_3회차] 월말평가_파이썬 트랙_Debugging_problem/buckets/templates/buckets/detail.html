@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+  <h1>여행지 버킷리스트</h1>
+
+  <p><span>{{ bucket_item.pk }}번 여행지 | </span> {{ bucket_item.destination_name }}</p>
+  <p>작성 시간 : {{ bucket_item.created_at }}</p>
+  <hr>
+  {% if bucket_item.image %}
+    <img src="{{ bucket_item.image.url }}" alt="{{ bucket_item.image_description }}">
+  {% comment %} 이미지가 없는경우 {% endcomment %}
+  {% comment %} assets의 noimage.png를 표시해줌 {% endcomment %}
+  {% else %}
+    <img src="{% static 'assets/noimage.png' %}" alt="no-image" style="max-width: 200px; max-height:200px;">
+  {% endif %}
+  <p>{{ bucket_item.content }}</p>
+  <hr>
+  <a href="{% url 'buckets:update' bucket_item.pk %}">[UPDATE]</a>
+  <form action="{% url 'buckets:delete' bucket_item.pk %}" method="POST">
+    {% csrf_token %}
+    <button class="btn btn-danger">[DELETE]</button>
+  </form>
+  <a href="{% url 'buckets:index' %}">[BACK]</a>
+{% endblock content %}
+
