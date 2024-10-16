@@ -1,0 +1,82 @@
+[
+{
+    "model": "artists.artist",
+    "pk": 1,
+    "fields": {
+        "name": "진성1번",
+        "agency": "싸피x1",
+        "debut_date": "2024-10-16",
+        "is_group": true
+    }
+},
+{
+    "model": "artists.artist",
+    "pk": 2,
+    "fields": {
+        "name": "진성2번",
+        "agency": "싸피x2",
+        "debut_date": "2024-10-16",
+        "is_group": false
+    }
+},
+{
+    "model": "artists.artist",
+    "pk": 3,
+    "fields": {
+        "name": "진성3번",
+        "agency": "싸피x3",
+        "debut_date": "2024-10-16",
+        "is_group": true
+    }
+},
+{
+    "model": "artists.artist",
+    "pk": 4,
+    "fields": {
+        "name": "진성4번",
+        "agency": "싸피x4",
+        "debut_date": "2024-10-16",
+        "is_group": false
+    }
+},
+{
+    "model": "artists.artist",
+    "pk": 5,
+    "fields": {
+        "name": "진성5번",
+        "agency": "싸피x5",
+        "debut_date": "2024-10-16",
+        "is_group": true
+    }
+},
+{
+    "model": "artists.artist",
+    "pk": 6,
+    "fields": {
+        "name": "구현핑구현핑",
+        "agency": "구현핑",
+        "debut_date": "2024-10-16",
+        "is_group": true
+    }
+},
+{
+    "model": "artists.artist",
+    "pk": 7,
+    "fields": {
+        "name": "구현핑구현핑22",
+        "agency": "구현핑22",
+        "debut_date": "2024-10-16",
+        "is_group": true
+    }
+},
+{
+    "model": "artists.artist",
+    "pk": 8,
+    "fields": {
+        "name": "구현핑구현핑333",
+        "agency": "구현핑333",
+        "debut_date": "2024-10-16",
+        "is_group": false
+    }
+}
+]
