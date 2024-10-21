@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>오늘 할 일</h1>
+  <hr>
+  <ul>
+    <li>수업 복습 하기</li>
+    <li>실습 문제 풀기</li>
+    <li>스터디 참여하기</li>
+    <li>1 일 1 커밋하기</li>
+    <li id="game">게임 하기</li>
+  </ul>
+  <script>
+    // 아래에 코드 작성
+    const title = document.querySelector('h1')
+    title.textContent = '오늘 공부 목록'
+    console.log('title:', title.textContent)
+
+    // studyList 변수 생성
+    const studyList = document.body.querySelector('ul')
+    studyList.classList.add('study')
+    console.log(studyList)
+
+    // ul 태그의 자식 요소 중 id가 game인 요소를 전부 가져옴
+    const itemGameList = document.querySelectorAll('ul > #game')
+    console.log(itemGameList)
+    for (itemGame of itemGameList) {
+      itemGame.remove()
+    }    
+  </script>
+</body>
+</html>

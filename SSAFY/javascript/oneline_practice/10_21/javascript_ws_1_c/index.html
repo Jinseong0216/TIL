@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .article {
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin-bottom: 10px;
+      background-color: #f9f9f9;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+  </div>
+  <script>
+    // 아래에 코드 작성
+    articleDiv = document.createElement('div')
+    articleDiv.classList.add('article')
+
+    containerDiv = document.body.querySelector('#container')
+    containerDiv.appendChild(articleDiv)
+
+    h1Tag = document.createElement('h1')
+    h1Tag.textContent = 'Article Title'
+    articleDiv.appendChild(h1Tag)
+
+    pTagUnderh1 = document.createElement('p')
+    pTagUnderh1.style.borderTop = '1px solid black'
+    pTagUnderh1.style.paddingTop = '10px'
+    pTagUnderh1.textContent = 'This is a article content'
+   articleDiv.appendChild(pTagUnderh1)
+
+</script>
+</body>
+
+</html>
