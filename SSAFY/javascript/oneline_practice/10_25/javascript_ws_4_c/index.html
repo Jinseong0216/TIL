@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .bg-color {
+      background-color: #f0f0f0;
+      padding: 20px;
+      margin: 20px;
+    }
+
+    .fs-2 {
+      font-size: 2rem;
+    }
+  </style>
+</head>
+
+<body>
+  <div>
+    <h2>Input</h2>
+    <input type="text" class="text-input">
+    <span class="warning" style="color: red; display: none;">글자 수를 초과하였습니다.</span>
+    <p></p>
+  </div>
+  <div>
+    <h2>Color</h2>
+    <input type="text" class="color-input">
+  </div>
+
+  <script>
+    // 아래에 코드 작성
+    const textInputTag = document.querySelector('.text-input')
+    const colorInputTag = document.querySelector('.color-input')
+
+    textInputTag.addEventListener('focus', function (e) {
+      // console.log(e)
+      const pTags = document.querySelectorAll('p')
+      if (e.type == 'focus') {
+        for (pTag of pTags) {
+        pTag.classList.add('fs-2', 'bg-color')
+        }
+      } else {
+        for (pTag of pTags) {
+        pTag.classList.remove('fs-2', 'bg-color')
+        }
+      }
+      
+      const pTagSibling = this.parentElement.querySelector('p')
+      if (this.value.length < 5) {
+        const spanTag = document.querySelector('.warning')
+        spanTag.style.display = 'none'
+        pTagSibling.style.display = ''
+      } else {
+        const spanTag = document.querySelector('.warning')
+        spanTag.style.display = ''
+        pTagSibling.style.display = 'none'        
+      }
+      pTagSibling.textContent = this.value
+    })
+    textInputTag.addEventListener('blur', function () {
+        this.parentElement.querySelector('p').textContent = this.value
+        if (this.value.length >= 5) {
+        const pTagSibling = this.parentElement.querySelector('p')
+        const spanTag = document.querySelector('.warning')
+        spanTag.style.display = ''
+        pTagSibling.style.display = 'none'        
+        }
+    })
+    colorInputTag.addEventListener('focus', function () {
+      const pTags = document.querySelectorAll('p')
+      for (pTag of pTags) {
+        pTag.style.color = this.value
+      }
+    })
+    colorInputTag.addEventListener('blur', function () {
+      const pTags = document.querySelectorAll('p')
+      for (pTag of pTags) {
+        pTag.style.color = this.value
+        console.log(this.value)
+      }
+    })
+  </script> 
+</body>
+
+</html>
