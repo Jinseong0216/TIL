@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>디지털 필터링 문제 해결</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #333;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>디지털 필터링 문제</h1>
+        <p>N개의 정수가 들어있는 배열에서 이웃한 M개의 합을 계산하는 것은 디지털 필터링의 기초연산입니다.</p>
+        <p>M개의 합이 가장 큰 경우와 가장 작은 경우의 차이를 출력하는 프로그램을 작성하세요.</p>
+        <h2>예시</h2>
+        <p>다음은 N=5, M=3이고 5개의 숫자 1 2 3 4 5가 배열 v에 들어있는 경우입니다.</p>
+        <pre><code>v
+1 2 3 4 5</code></pre>
+        <p>이웃한 M개의 합이 가장 작은 경우: 1 + 2 + 3 = 6</p>
+        <p>이웃한 M개의 합이 가장 큰 경우: 3 + 4 + 5 = 12</p>
+        <p>답은 12와 6의 차인 6을 출력합니다.</p>
+
+        <h2>입력 형식</h2>
+        <ul>
+            <li>첫 줄에 테스트 케이스 개수 T가 주어집니다. (1 ≤ T ≤ 50)</li>
+            <li>다음 줄부터 각 테스트 케이스의 첫 줄에 정수의 개수 N과 구간의 개수 M이 주어집니다. (10 ≤ N ≤ 100, 2 ≤ M ＜ N)</li>
+            <li>다음 줄에 N개의 정수 a<sub>i</sub>가 주어집니다. (1 ≤ a<sub>i</sub> ≤ 10000)</li>
+        </ul>
+
+        <h2>출력 형식</h2>
+        <p>각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, 답을 출력합니다.</p>
+
+        <h2>입력 예제</h2>
+        <pre><code>3
+10 3
+1 2 3 4 5 6 7 8 9 10
+10 5
+6262 6004 1801 7660 7919 1280 525 9798 5134 1821
+20 19
+3266 9419 3087 9001 9321 1341 7379 6236 5795 8910 2990 2152 2249 4059 1394 6871 4911 3648 1969 2176</code></pre>
+
+        <h2>출력 예제</h2>
+        <pre><code>#1 21
+#2 11088
+#3 1090</code></pre>
+    </div>
+
+    <script>
+        // 입력 데이터
+        const input = `3
+10 3
+1 2 3 4 5 6 7 8 9 10
+10 5
+6262 6004 1801 7660 7919 1280 525 9798 5134 1821
+20 19
+3266 9419 3087 9001 9321 1341 7379 6236 5795 8910 2990 2152 2249 4059 1394 6871 4911 3648 1969 2176`
+
+        // 입력을 줄 단위로 분리
+        const lines = input.trim().split('\n')
+        const T = parseInt(lines[0], 10)
+        let index = 1
+
+        for (let tc = 1; tc <= T; tc++) {
+            // 10 3
+            const [N, M] = lines[index].split(' ').map(Number)
+            // 숫자로 변환임 str에서
+            const array = lines[index + 1].split(' ').map(Number)
+            index += 2
+            // M개의 합의 최댓값과 최솟값을 구하기 위한 변수 초기화
+            let maxSum = 0
+            let minSum = 10000*50+1
+
+            // 이웃한 M개의 합 계산
+            
+            for (let i = 0; i <= array.length - M; i++) {
+                let sum = 0 
+                for (let j = i; j < Math.min(i+M, array.length); j++) {
+                    sum += array[j]
+                }
+                if (minSum > sum) { minSum = sum}
+                if (maxSum < sum) { maxSum = sum}
+            }  
+
+            // 결과 출력
+            console.log(`#${tc} ${maxSum - minSum}`)
+        }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카드 개수 문제 해결</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        pre {
+            background-color: #f4f4f4;
+            padding: 10px;
+            border-left: 4px solid #333;
+            overflow-x: auto;
+        }
+        code {
+            font-family: Consolas, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>카드 개수 문제</h1>
+        <p>0에서 9까지 숫자가 적힌 N장의 카드가 주어집니다.</p>
+        <p>가장 많은 카드에 적힌 숫자와 카드가 몇 장인지 출력하는 프로그램을 만드세요. 카드 장수가 같을 때는 적힌 숫자가 큰 쪽을 출력합니다.</p>
+
+        <h2>입력 형식</h2>
+        <ul>
+            <li>첫 줄에 테스트 케이스 개수 T가 주어집니다. (1 ≤ T ≤ 50)</li>
+            <li>다음 줄부터 각 테스트 케이스의 첫 줄에 카드 장수 N이 주어집니다. (5 ≤ N ≤ 100)</li>
+            <li>다음 줄에 N개의 숫자 a<sub>i</sub>가 여백 없이 주어집니다. (0으로 시작할 수도 있음, 0 ≤ a<sub>i</sub> ≤ 9)</li>
+        </ul>
+
+        <h2>출력 형식</h2>
+        <p>각 줄마다 "#T" (T는 테스트 케이스 번호)를 출력한 뒤, 가장 많은 카드의 숫자와 장 수를 차례로 출력합니다.</p>
+
+        <h2>입력 예제</h2>
+        <pre><code>3
+5
+49679
+5
+08271
+10
+7797946543</code></pre>
+
+        <h2>출력 예제</h2>
+        <pre><code>#1 9 2
+#2 8 1
+#3 7 3</code></pre>
+    </div>
+
+    <script>
+        // 입력 데이터
+        const input = `3
+5
+49679
+5
+08271
+10
+7797946543`
+
+        // 입력을 줄 단위로 분리
+        const lines = input.trim().split('\n')
+        const T = parseInt(lines[0], 10)
+        let index = 1
+
+        for (let tc = 1; tc <= T; tc++) {
+            const N = parseInt(lines[index], 10)
+            const cards = lines[index + 1].split('').map(Number)
+            index += 2
+
+            // 숫자 카운트를 저장할 배열 (0부터 9까지)
+            const count = Array(10).fill(0)
+            let maxNumber = -1
+            let maxCount = -1           
+            // 카드 숫자 개수를 카운트
+            for (let i=0; i<N; i++) {
+                count[cards[i]] += 1
+                const cnt = count[cards[i]]
+                if (maxCount < cnt) {
+                    maxCount = cnt
+                    maxNumber = cards[i]}
+                if (maxCount == cnt && maxNumber < cards[i]) {maxNumber = cards[i]}
+            }
+            // 결과 출력
+            console.log(`#${tc} ${maxNumber} ${maxCount}`)
+        }
+    </script>
+</body>
+</html>
