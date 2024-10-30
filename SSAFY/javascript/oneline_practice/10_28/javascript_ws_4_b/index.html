@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .font-crimson {
+      color: crimson;
+    }
+  </style>
+</head>
+
+<body>
+  <h1 class="heading">Hover me!</h1>
+  <h2 class="sub-heading">Double Click me!</h2>
+  <p class="contents">Lorem ipsum dolor sit amet consectetur</p>
+
+  <script>
+    const randomTexts = [
+      'Lorem ipsum dolor sit amet consectetu',
+      'adipisicing elit. Repellendus delectus quam',
+      'similique quo ipsam maxime totam alias',
+      'quibusdam repudiandae voluptas dicta',
+      'voluptas voluptatibus exercitationem officiis'
+    ]
+
+    // 아래에 코드 작성
+    const h1Tag = document.querySelector('h1')
+    const h1TagDefaultText = h1Tag.textContent
+
+    h1Tag.addEventListener('mouseover', (e) => {h1Tag.textContent = "I'm being hovered!"})
+    h1Tag.addEventListener('mouseleave', (e) => {h1Tag.textContent = h1TagDefaultText})
+
+
+    const h2Tag = document.querySelector('h2')
+    h2Tag.addEventListener('dblclick', (e) => {
+      if (!h2Tag.style.color) {h2Tag.style.color = "crimson"}
+      else {h2Tag.style.color = ""}
+    })
+
+    const pTag = document.querySelector('p')
+    pTag.addEventListener('mousewheel', (e) => {
+      let choice = Math.floor(Math.random() * 10) % 4
+      pTag.textContent = randomTexts[choice]
+    })
+  </script>
+</body>
+
+</html>
