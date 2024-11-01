@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>초단기 강수예측</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        header, nav, footer {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+        }
+
+        #map {
+            width: 100%;
+            height: 400px;
+        }
+
+        #rainChart {
+            width: 100%;
+            height: 200px;
+        }
+
+        @media (max-width: 600px) {
+            #map {
+                height: 300px;
+            }
+        }
+    </style>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+</head>
+<body>
+    <header>
+        <h1>초단기 강수예측</h1>
+    </header>
+    <nav>
+        <!-- 네비게이션 메뉴 -->
+    </nav>
+    <main>
+        <div id="map"></div>
+        <canvas id="rainChart"></canvas>
+        <div id="forecast-info"></div>
+    </main>
+    <footer>
+        <p>© 2024 기상청</p>
+    </footer>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        function initMap() {
+            const map = L.map('map').setView([37.5665, 126.978], 8); // 서울 중심
+
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                maxZoom: 19,
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // 예측 데이터 가져오기 (여기서는 더미 데이터로 대체)
+            const data = [
+                { time: '0시', lat: 37.5665, lng: 126.978, rainfall: 0 },
+                { time: '1시', lat: 37.575, lng: 126.988, rainfall: 5 },
+                { time: '2시', lat: 37.580, lng: 126.990, rainfall: 10 },
+                { time: '3시', lat: 37.590, lng: 126.995, rainfall: 15 }
+            ];
+
+            data.forEach(point => {
+                L.marker([point.lat, point.lng]).addTo(map)
+                    .bindPopup(`예측 강수량: ${point.rainfall}mm`);
+            });
+
+            // 차트 데이터 준비
+            const labels = data.map(point => point.time); // 시간 라벨
+            const rainfallData = data.map(point => point.rainfall); // 강수량 데이터
+            createRainChart(labels, rainfallData);
+        }
+
+        function createRainChart(labels, rainfallData) {
+            const ctx = document.getElementById('rainChart').getContext('2d');
+            const rainChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: '예측 강수량',
+                        data: rainfallData,
+                        borderColor: 'blue',
+                        fill: false,
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: '강수량 (mm)'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        window.onload = initMap;
+    </script>
+</body>
+</html>
