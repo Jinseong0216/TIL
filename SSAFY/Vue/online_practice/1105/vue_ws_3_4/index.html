@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+	<style>
+    li {
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin: 10px 0;
+      background-color: #f5f5f5;
+    }
+    .cheap {
+      background-color: #e1f7e1;
+    }
+    .expensive {
+      background-color: #f7e1e1;
+    }
+    .selected {
+      background-color: #ffc;
+    }
+  </style>
+</head>
+<body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <div id="app">
+    <h1>다양한 전시 정보</h1>
+    <label for="isActive">전시 중인 정보만 보기</label>
+    <input type="checkbox" id="isActive" v-model="isActive">
+    <ul>
+      <template v-for="exhibition in exhibitionInfo" :key="exhibition.exhibitionName">
+        <li
+         v-show="!isActive || exhibition.isExhibition"
+         :class="{
+          'expensive': exhibition.entranceFee >= 20000,
+          'expensive': exhibition.entranceFee < 5000
+         }"
+        >
+          <div v-if="exhibition.isExhibition">
+            <label for="isSelected">전시 관람 하기</label>
+            <input type="checkbox" id="isSelected" v-model="exhibition.isSelected">
+          </div>
+          <div style="color: red;" v-if="!exhibition.isExhibition">
+            <p>전시가 종료되어 관람 할 수 없습니다.</p>
+          </div>
+
+          <h3>{{ exhibition.exhibitionName }}</h3>
+          <hr>
+          <p>전시 장소</p>
+          <p>가격 : </p>
+          <hr>
+        </li>
+      </template>
+    </ul>
+  </div>
+
+  <script>
+    const { createApp, ref, computed} = Vue
+    // const isChecked = document.querySelector("#isActive").checked
+    const app = createApp({
+      setup() {
+        const isActive = ref(false)
+        const isNowInfo = ref(false)
+        const exhibitionInfo = ref([
+          {
+            exhibitionName: "무라카미 다카시 : 무라카시좀비",
+            location: "부산 시립 미술관",
+            entranceFee: 1000,
+            isExhibition: true,
+            isSelected: false,
+          },
+          {
+            exhibitionName: "마우라치오 카텔란 개인전",
+            location: "리움 미술관",
+            entranceFee: 30000,
+            isExhibition: true,
+            isSelected: false,
+          },
+          {
+            exhibitionName: "조선백자전",
+            location: "리움 미술관",
+            entranceFee: 30000,
+            isExhibition: true,
+            isSelected: false,
+          },
+          {
+            exhibitionName: "한국 실험미술 1960 - 1970",
+            location: "국립현대미술관",
+            entranceFee: 0,
+            isExhibition: true,
+            isSelected: false,
+          },
+          {
+            exhibitionName: "에드워드 호퍼 : 길 위에서",
+            location: "서울 시립 미술관",
+            entranceFee: 1000,
+            isExhibition: false,
+            isSelected: false,
+          },
+          {
+            exhibitionName: "알렉산더 칼더 x 이우환",
+            location: "국제갤러리 서울점",
+            entranceFee: 15000,
+            isExhibition: false,
+            isSelected: false,
+          }
+        ])  
+      return {
+        exhibitionInfo, isNowInfo, isActive
+      }
+    }
+})
+
+
+    app.mount("#app")
+  </script>
+</body>
+</html>

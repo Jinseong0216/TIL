@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <div id="app">
+    <h1>다양한 전시 정보</h1>
+    <hr>
+    <ul>
+      <template v-for="exhibition in exhibitionInfo" :key="exhibitionName">
+        <li>
+          <h3>{{ exhibition.exhibitionName }}</h3>
+          <p>{{ exhibition.location }}</p>
+          <p>{{ exhibition.entranceFee }}</p>
+          <hr>
+        </li>
+      </template>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <script>
+    const { createApp, ref} = Vue
+
+    const app = createApp({
+      setup() {
+        const exhibitionInfo = ref([
+          {
+            exhibitionName: "무라카미 다카시 : 무라카시좀비",
+            location: "부산 시립 미술관",
+            entranceFee: 10000
+          },
+          {
+            exhibitionName: "마우라치오 카텔란 개인전",
+            location: "리움 미술관",
+            entranceFee: 30000
+          },
+          {
+            exhibitionName: "조선백자전",
+            location: "리움 미술관",
+            entranceFee: 30000
+          }
+        ])
+        return {
+          exhibitionInfo
+        }
+      }
+    })
+
+    app.mount("#app")
+  </script>
+</body>
+</html>

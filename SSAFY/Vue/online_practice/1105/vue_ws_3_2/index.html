@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <div id="app">
+    <h1>다양한 전시 정보</h1>
+    <label for="isActive">전시 중인 정보만 보기</label> 
+    <input type="checkbox" id="isActive" v-model="isActive">
+    <ul>
+      <template v-for="exhibition in exhibitionInfo" :key="exhibition.exhibitionName">
+        <li v-show="!isActive || exhibition.isExhibition">
+          <h3>{{ exhibition.exhibitionName }}</h3>
+          <hr>
+          <p>전시 장소: {{ exhibition.location }}</p>
+          <p>가격: {{ exhibition.entranceFee }}</p>
+          <hr>
+        </li>
+      </template>
+    </ul>
+  </div>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const { createApp, ref} = Vue
+    // const isChecked = document.querySelector("#isActive").checked
+    const app = createApp({
+      setup() {
+        const isActive = ref(true)
+        const isNowInfo = ref(false)
+        const exhibitionInfo = ref([
+          {
+            exhibitionName: "무라카미 다카시 : 무라카시좀비",
+            location: "부산 시립 미술관",
+            entranceFee: 1000,
+            isExhibition: true
+          },
+          {
+            exhibitionName: "마우라치오 카텔란 개인전",
+            location: "리움 미술관",
+            entranceFee: 30000,
+            isExhibition: true
+          },
+          {
+            exhibitionName: "조선백자전",
+            location: "리움 미술관",
+            entranceFee: 30000,
+            isExhibition: true
+          },
+          {
+            exhibitionName: "한국 실험미술 1960 - 1970",
+            location: "국립현대미술관",
+            entranceFee: 0,
+            isExhibition: true
+          },
+          {
+            exhibitionName: "에드워드 호퍼 : 길 위에서",
+            location: "서울 시립 미술관",
+            entranceFee: 1000,
+            isExhibition: false
+          },
+          {
+            exhibitionName: "알렉산더 칼더 x 이우환",
+            location: "국제갤러리 서울점",
+            entranceFee: 15000,
+            isExhibition: false
+          }
+        ])
+      return {
+        exhibitionInfo,
+        isNowInfo,
+        isActive
+      }
+    }
+})
+
+
+    app.mount("#app")
+  </script>
+</body>
+</html>
