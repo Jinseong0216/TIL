@@ -1,14 +1,4 @@
-grid, empty_lst = [], []
-for row_index in range(9):
-    row = list(map(int, input().split()))
-    for col_index in range(9):
-        if row[col_index] == 0: 
-            empty_lst.append((row_index, col_index))
-    grid.append(row)
-
-E = len(empty_lst)
-
-def dfs(now):
+def dfs(now=0):
     global is_continue
 
     if is_continue == False: return 
@@ -34,5 +24,15 @@ def possible_numbers(now):
     possibles -= set(grid[i][j] for i in range(start_row, start_row+3) for j in range(start_col, start_col+3))
     return possibles
 
-is_continue = True
-dfs(0)
+
+if __name__ == "__main__": 
+    # 받아온 자료
+    grid = [list(map(int, input().split())) for _ in range(9)]
+    # 빈 공간
+    empty_lst = [(r, c) for r in range(9) for c in range(9) if grid[r][c] == 0]
+    # 빈 공간의 수
+    E = len(empty_lst)
+    # dfs멈춤 플래그
+    is_continue = True
+    # 함수 호출
+    dfs()
