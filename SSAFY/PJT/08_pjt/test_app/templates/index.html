@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Locust Test Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 90%;
+            margin: 20px auto;
+            background-color: white;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1, h2 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        th, td {
+            font-size: 14px;
+        }
+        .summary {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Locust Test Report</h1>
+
+        <h2>Test Overview</h2>
+        <div class="summary">
+            <p><strong>Test Duration:</strong> 2024.11.8 2:02:26 PM - 2024.11.8 2:03:32 PM</p>
+            <p><strong>Target Host:</strong> <a href="http://127.0.0.1:8000/">http://127.0.0.1:8000/</a></p>
+            <p><strong>Test Script:</strong> locust_test.py</p>
+        </div>
+
+        <h2>Graph Analysis: Requests and Average Response Time</h2>
+        <img src="data:image/png;base64,{{ graph }}" alt="Locust Test Analysis Graph">
+
+        <h3>Request Statistics</h3>
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Name</th>
+                    <th># Requests</th>
+                    <th># Fails</th>
+                    <th>Average (ms)</th>
+                    <th>Min (ms)</th>
+                    <th>Max (ms)</th>
+                    <th>Avg. Size (bytes)</th>
+                    <th>RPS</th>
+                    <th>Failures/s</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/test/bubble_sort/</td>
+                    <td>515</td>
+                    <td>0</td>
+                    <td>40</td>
+                    <td>24</td>
+                    <td>134</td>
+                    <td>13</td>
+                    <td>7.8</td>
+                    <td>0.0</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/test/mean_age/</td>
+                    <td>479</td>
+                    <td>0</td>
+                    <td>11</td>
+                    <td>1</td>
+                    <td>126</td>
+                    <td>1337</td>
+                    <td>7.3</td>
+                    <td>0.0</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/test/my_data/</td>
+                    <td>506</td>
+                    <td>0</td>
+                    <td>8</td>
+                    <td>1</td>
+                    <td>94</td>
+                    <td>7009</td>
+                    <td>7.7</td>
+                    <td>0.0</td>
+                </tr>
+                <!-- Add remaining rows for the other endpoints -->
+            </tbody>
+        </table>
+
+        <h2>Response Time Statistics</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Method</th>
+                    <th>Name</th>
+                    <th>50%ile (ms)</th>
+                    <th>60%ile (ms)</th>
+                    <th>70%ile (ms)</th>
+                    <th>80%ile (ms)</th>
+                    <th>90%ile (ms)</th>
+                    <th>95%ile (ms)</th>
+                    <th>99%ile (ms)</th>
+                    <th>100%ile (ms)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>GET</td>
+                    <td>/test/bubble_sort/</td>
+                    <td>32</td>
+                    <td>35</td>
+                    <td>40</td>
+                    <td>53</td>
+                    <td>66</td>
+                    <td>88</td>
+                    <td>120</td>
+                    <td>130</td>
+                </tr>
+                <tr>
+                    <td>GET</td>
+                    <td>/test/mean_age/</td>
+                    <td>4</td>
+                    <td>5</td>
+                    <td>8</td>
+                    <td>18</td>
+                    <td>33</td>
+                    <td>47</td>
+                    <td>98</td>
+                    <td>130</td>
+                </tr>
+                <!-- Add remaining rows for the other endpoints -->
+            </tbody>
+        </table>
+
+        <h2>User Ratio</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>User Class</th>
+                    <th>Ratio</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>SampleUser</td>
+                    <td>100.0%</td>
+                </tr>
+                <tr>
+                    <td>my_data</td>
+                    <td>16.7%</td>
+                </tr>
+                <!-- Add remaining rows for the other user classes -->
+            </tbody>
+        </table>
+
+    </div>
+</body>
+</html>
