@@ -1,0 +1,62 @@
+Transaction Date,Amount,Category,Time,Description
+2024-10-13,50,Dining,10:00,Coffee at cafe
+2024-10-13,120,Shopping,11:30,Bookstore purchase
+2024-10-13,200,Transport,13:00,Subway fare
+2024-10-13,500,Shopping,16:00,Smartphone purchase
+2024-10-13,250,Dining,19:00,Dinner at restaurant
+2024-10-13,350,Entertainment,21:00,Movie tickets
+2024-10-14,120,Health,8:00,Doctor's visit
+2024-10-14,200,Dining,12:00,Lunch with friends
+2024-10-14,250,Shopping,15:30,Online shopping for accessories
+2024-10-14,100,Transport,17:00,Bus fare
+2024-10-14,100,Entertainment,19:00,Netflix subscription
+2024-10-14,50,Dining,20:00,Late-night snack
+2024-10-15,250,Shopping,9:00,Fashion purchase
+2024-10-15,200,Health,10:30,Gym session
+2024-10-15,100,Transport,12:00,Taxi fare
+2024-10-15,50,Groceries,14:00,Grocery shopping
+2024-10-15,300,Dining,16:00,Dinner at a restaurant
+2024-10-15,150,Entertainment,18:30,Movie tickets
+2024-10-16,500,Transport,8:30,Long-distance taxi fare
+2024-10-16,50,Dining,10:00,Coffee shop
+2024-10-16,100,Health,12:00,Medical checkup
+2024-10-16,300,Shopping,14:00,Electronics purchase
+2024-10-16,200,Entertainment,16:00,Movie tickets
+2024-10-16,250,Dining,18:00,Dinner with colleagues
+2024-10-17,100,Groceries,8:00,Grocery shopping
+2024-10-17,150,Health,10:00,Health supplement
+2024-10-17,200,Shopping,12:00,Clothes shopping
+2024-10-17,50,Transport,14:00,Bus fare
+2024-10-17,300,Dining,17:00,Dinner with family
+2024-10-17,100,Entertainment,20:00,Netflix subscription
+2024-10-18,80,Groceries,9:00,Grocery shopping
+2024-10-18,100,Transport,10:00,Subway fare
+2024-10-18,200,Entertainment,14:00,Movie tickets
+2024-10-18,50,Dining,16:00,Coffee and snack
+2024-10-18,150,Shopping,18:00,Fashion accessories
+2024-10-18,100,Health,20:00,Sports supplement
+2024-10-19,250,Dining,9:30,Brunch at restaurant
+2024-10-19,300,Shopping,12:00,Electronics purchase
+2024-10-19,150,Entertainment,15:00,Movie tickets
+2024-10-19,200,Transport,17:00,Taxi fare
+2024-10-19,100,Health,19:00,Gym session
+2024-10-19,250,Dining,21:00,Dinner with friends
+2024-10-20,200,Shopping,10:30,Online shopping for shoes
+2024-10-20,100,Transport,12:00,Subway fare
+2024-10-20,50,Dining,14:00,Quick snack at cafe
+2024-10-20,400,Entertainment,16:00,Concert tickets
+2024-10-20,200,Dining,18:00,Dinner at restaurant
+2024-10-21,150,Transport,9:00,Taxi fare
+2024-10-21,100,Shopping,11:00,Grocery shopping
+2024-10-21,250,Health,14:00,Spa visit
+2024-10-21,300,Dining,16:00,Dinner at a restaurant
+2024-10-21,100,Entertainment,19:00,Movie ticket purchase
+2024-10-22,50,Dining,12:00,Coffee with a friend
+2024-10-22,150,Health,15:00,Gym session
+2024-10-22,200,Shopping,18:00,Electronics purchase
+2024-10-22,100,Transport,20:00,Taxi fare
+2024-10-22,50,Dining,22:00,Late-night snack
+2024-10-23,200,Shopping,10:30,Clothes shopping
+2024-10-23,100,Transport,12:00,Subway fare
+2024-10-23,150,Health,15:00,Health checkup
+2024-10-23,300,Dining,17:30,Dinner with colleagues
